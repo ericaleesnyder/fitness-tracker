@@ -5,6 +5,11 @@ const { Schema } = mongoose;
 const workoutSchema = new Schema({
   // refer to seeders > seed.js to get the model properties
   // be judicious with what items get required
+
+  // IF I CHOOSE CUSTOM METHODS:
+  // custom methods:
+  // totalDuration
+
   day: {
     type: Date,
     required: true,
@@ -12,7 +17,7 @@ const workoutSchema = new Schema({
   },
   exercises: [
     {
-      exerciseType: {
+      type: {
         type: String,
         trim: true, 
         enum: ["resistance", "cardio"],
@@ -47,6 +52,9 @@ const workoutSchema = new Schema({
     }
   ]
 });
+
+// IF I CHOOSE CUSTOM METHODS:
+// set up total duration custom method
 
 const Workout = mongoose.model('Workout', workoutSchema);
 
